@@ -45,6 +45,29 @@ const styles = (theme) => ({
 
 const N_631 = (props) => {
   const [isVisible, setIsVisible] = useState(false);
+  const data =
+  {
+    id: 1,
+    name: "Hair Dryer 631",
+    price: 99.99,
+    image: `${process.env.PUBLIC_URL}/images/logged_out/№631 01.jpg`,
+  }
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCartHandler = (product) => {
+    const existItem = cartItems.find((x) => x.id === product.id);
+    if (existItem) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...existItem, qty: existItem.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+
+
 
   const onScroll = () => {
     if (window.pageYOffset > 100) {
@@ -64,72 +87,93 @@ const N_631 = (props) => {
   const { classes, theme } = props;
 
   return (
-    <Container>
-      <div className={classes.blogContentWrapper}>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          spacing={5}
-          sx={{
-            top: "104px",
-            position: "fixed",
-            height: "54px",
-            width: "100%",
-            background: "#f8f8f8",
-            zIndex: 1000,
-          }}
-          direction="row"
-        >
-          <Grid xs={4}>
-            <Typography variant="h6">Hair Dryer 631</Typography>
-          </Grid>
-          <Grid xs={4}>
-            <Typography variant="body2" color="textSecondary">
-              Price: <b>£99.99</b> + shipping
-            </Typography>
-          </Grid>
-          <Grid xs={4}>
-            <Button
-              className={classes.btn}
-              variant="contained"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions"
-            >
-              ADD TO CART
-            </Button>
-
-            <div
-              class="offcanvas offcanvas-end"
-              data-bs-scroll="true"
-              tabindex="-1"
-              id="offcanvasWithBothOptions"
-              aria-labelledby="offcanvasWithBothOptionsLabel"
-              style={{ marginTop: '4rem' }}
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                  Cart
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <p style={{ textAlign: 'center' }}>
-                  Your cart is empty.
-                </p>
-              </div>
-            </div>
-          </Grid>
+    <>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        spacing={5}
+        sx={{
+          top: "104px",
+          position: "fixed",
+          height: "54px",
+          width: "100%",
+          background: "#f8f8f8",
+          zIndex: 1000,
+          marginLeft: "0px",
+          textAlign: "center",
+        }}
+        direction="row"
+      >
+        <Grid xs={4}>
+          <Typography variant="h6">{data.name}</Typography>
         </Grid>
-        <Divider sx={{ margin: "1rem 0 1rem 0" }} />
+        <Grid xs={4}>
+          <Typography variant="body2" color="textSecondary">
+            Price: <b>£{data.price}</b> + shipping
+          </Typography>
+        </Grid>
+        <Grid xs={4}>
+          <Button
+            className={classes.btn}
+            variant="contained"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
+            onClick={() => addToCartHandler(data)}
+          >
+            ADD TO CART
+          </Button>
 
-        {/* Section 01 */}
+          <div
+            className="offcanvas offcanvas-end"
+            data-bs-scroll="true"
+            tabindex="-1"
+            id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel"
+            style={{ marginTop: '4rem' }}
+            cartItems={cartItems}
+          >
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+                Cart
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="offcanvas-body">
+              {cartItems.length === 0 ? (
+                <div style={{ textAlign: 'center' }}>Cart is empty</div>
+              ) : (
+                <div>
+                  {cartItems.map((item) => (
+                    <Grid container height="2rem" direction="row" textAlign="center" marginBottom="5rem" key={item.id} spacing={5}>
+                      <Grid item xs={4}>
+                        <img src={item.image} alt={item.name} width="50%" />
+                      </Grid>
+                      <Grid item xs={4} sx={{ fontSize: '14px' }}>
+                        <p>{item.name}</p>
+                        <p>{item.qty}</p>
+                      </Grid>
+                      <Grid item xs={4} sx={{ fontSize: '14px', fontWeight: '500' }}>
+                        <p>£{item.price}</p>
+                      </Grid>
+                    </Grid>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+      <Divider sx={{ margin: "1rem 0 1rem 0" }} />
+
+      {/* Section 01 */}
+      <Container>
         <Grid container spacing={5} sx={{ marginTop: "15rem" }}>
           <Grid container md={10} direction="row">
             <Grid xs={6}>
@@ -219,7 +263,7 @@ const N_631 = (props) => {
             </Grid>
             <Grid xs={6}>
               <img
-                src={`${process.env.PUBLIC_URL}/images/logged_out/№631 01.jpg`}
+                src={data.image}
                 alt=""
                 style={{
                   animationDuration: "1s",
@@ -785,8 +829,8 @@ const N_631 = (props) => {
           </Grid>
         </Grid>
         <Divider sx={{ margin: "1rem 0 1rem 0" }} />
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 

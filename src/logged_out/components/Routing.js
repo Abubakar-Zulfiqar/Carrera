@@ -29,6 +29,7 @@ import Kitchen from "./kitchen/Kitchen";
 import Grooming from "./grooming/Grooming";
 import PropsRoute from "../../shared/components/PropsRoute";
 import useLocationBlocker from "../../shared/functions/useLocationBlocker";
+import Animation from "./Particals Animation/Animation";
 
 function Routing(props) {
   const { selectHome } = props;
@@ -39,6 +40,7 @@ function Routing(props) {
       <PropsRoute exact path="/styling" component={Styling} />
       <PropsRoute exact path="/kitchen" component={Kitchen} />
       <PropsRoute exact path="/grooming" component={Grooming} />
+      <PropsRoute exact path="/animation" component={Animation} />
       <PropsRoute path="/carrera-shaver-521" component={N_521} />
       <PropsRoute path="/carrera-shaver-421" component={N_421} />
       <PropsRoute path="/carrera-trimmer-623" component={N_623} />

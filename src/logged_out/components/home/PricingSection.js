@@ -105,7 +105,7 @@ function PricingSection(props) {
                 }}
               >
                 <h2 className="alt-font text-extra-dark-gray font-weight-800 width-25 margin-40px-tb d-block text-uppercase">
-                  <mark class="bg-black text-yellow">
+                  <mark className="bg-black text-yellow">
                     &nbsp;&nbsp;Kitchen&nbsp;&nbsp;
                   </mark>
                 </h2>
@@ -143,7 +143,7 @@ function PricingSection(props) {
               From quartz toasters to glass kettles and feature rich mixers to
               beautiful blenders that can make soup, cook pasta and clean
               themselves... Carrera kitchen tools not only look super cool but
-              also perform like world class culinary athletes.
+              also perform like world className culinary athletes.
             </Typography>
             <Link to="/kitchen" className={classes.noDecoration}>
               <button
@@ -209,7 +209,7 @@ function PricingSection(props) {
                 }}
               >
                 <h2 className="alt-font text-extra-dark-gray font-weight-800 width-25 margin-40px-tb d-block text-uppercase">
-                  <mark class="bg-black text-white">
+                  <mark className="bg-black text-white">
                     &nbsp;&nbsp;grooming&nbsp;&nbsp;
                   </mark>
                 </h2>
@@ -314,7 +314,7 @@ function PricingSection(props) {
                 }}
               >
                 <h2 className="alt-font text-extra-dark-gray font-weight-800 width-25 margin-40px-tb d-block text-uppercase">
-                  <mark class="bg-black text-yellow">
+                  <mark className="bg-black text-yellow">
                     &nbsp;&nbsp;Styling&nbsp;&nbsp;
                   </mark>
                 </h2>
@@ -419,7 +419,7 @@ function PricingSection(props) {
                 }}
               >
                 <h2 className="alt-font text-extra-dark-gray font-weight-800 width-25 margin-40px-tb d-block text-uppercase">
-                  <mark class="bg-black text-white">
+                  <mark className="bg-black text-white">
                     &nbsp;&nbsp;BEAUTY&nbsp;&nbsp;
                   </mark>
                 </h2>

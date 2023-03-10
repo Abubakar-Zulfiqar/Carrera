@@ -82,25 +82,25 @@ const N_526 = (props) => {
                         </Button>
 
                         <div
-                            class="offcanvas offcanvas-end"
+                            className="offcanvas offcanvas-end"
                             data-bs-scroll="true"
                             tabindex="-1"
                             id="offcanvasWithBothOptions"
                             aria-labelledby="offcanvasWithBothOptionsLabel"
                             style={{ marginTop: '4rem' }}
                         >
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+                            <div className="offcanvas-header">
+                                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                     Cart
                                 </h5>
                                 <button
                                     type="button"
-                                    class="btn-close"
+                                    className="btn-close"
                                     data-bs-dismiss="offcanvas"
                                     aria-label="Close"
                                 ></button>
                             </div>
-                            <div class="offcanvas-body">
+                            <div className="offcanvas-body">
                                 <p style={{ textAlign: 'center' }}>
                                     Your cart is empty.
                                 </p>
@@ -231,7 +231,7 @@ const N_526 = (props) => {
                                 }}
                                 className="background13"
                             >
-                                <div class="carousel-caption slider-text-middle">
+                                <div className="carousel-caption slider-text-middle">
                                     <Grid
                                         container
                                         justify="center"
@@ -290,7 +290,7 @@ const N_526 = (props) => {
                                 }}
                                 className="background14"
                             >
-                                <div class="carousel-caption slider-text-middle">
+                                <div className="carousel-caption slider-text-middle">
                                     <Grid
                                         container
                                         justify="center"
@@ -349,7 +349,7 @@ const N_526 = (props) => {
                                 }}
                                 className="background15"
                             >
-                                <div class="carousel-caption slider-text-middle">
+                                <div className="carousel-caption slider-text-middle">
                                     <Grid
                                         container
                                         justify="center"
@@ -580,7 +580,7 @@ const N_526 = (props) => {
                                 lineHeight: "43px",
                             }}
                         >
-                            <ul class="p-0 list-style-3">
+                            <ul className="p-0 list-style-3">
                                 <li>Universal charging station</li>
                                 <li>
                                     Compatible with these CARRERA grooming tools Shaver №421,

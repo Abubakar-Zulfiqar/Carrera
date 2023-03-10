@@ -154,7 +154,7 @@ const NavBar = (props) => {
                     Styling
                   </Button>
                 </Link>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <a href="carrera-ac-hair-dryer-631">AC HAIR DRYER №631</a>
                   <a href="carrera-hair-dryer-531">HAIR DRYER №531</a>
                   <a href="carrera-hair-dryer-532">HAIR DRYER №532</a>
@@ -179,7 +179,7 @@ const NavBar = (props) => {
                     Beauty
                   </Button>
                 </Link>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <a href="carrera-facial-cleansing-brush-571">FACIAL CLEANSING BRUSH №571</a>
                 </div>
               </div>
@@ -199,7 +199,7 @@ const NavBar = (props) => {
                     Grooming
                   </Button>
                 </Link>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <a href="carrera-shaver-521">Shaver №521</a>
                   <a href="carrera-shaver-421">Shaver №421</a>
                   <a href="carrera-hair-clipper-622">Hair Clipper №622</a>
@@ -224,7 +224,7 @@ const NavBar = (props) => {
                     Kitchen
                   </Button>
                 </Link>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <a href="carrera-water-kettle-551">Water Kettle №551</a>
                   <a href="carrera-glass-water-kettle-651">Glass Water Kettle №651</a>
                   <a href="carrera-toaster-552">Toaster №552</a>

@@ -84,25 +84,25 @@ const N_535 = (props) => {
             </Button>
 
             <div
-              class="offcanvas offcanvas-end"
+              className="offcanvas offcanvas-end"
               data-bs-scroll="true"
               tabindex="-1"
               id="offcanvasWithBothOptions"
               aria-labelledby="offcanvasWithBothOptionsLabel"
               style={{ marginTop: '4rem' }}
             >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+              <div className="offcanvas-header">
+                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                   Cart
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="offcanvas-body">
+              <div className="offcanvas-body">
                 <p style={{ textAlign: 'center' }}>
                   Your cart is empty.
                 </p>
@@ -271,7 +271,7 @@ const N_535 = (props) => {
                 marginTop: "3rem",
               }}
             >
-              <ul class="p-0 list-style-3">
+              <ul className="p-0 list-style-3">
                 <li>
                   Round brush attachment ø 22 mm for consistent curls and volume
                   right from the hairline. Retractable bristles for safe styling
@@ -309,7 +309,7 @@ const N_535 = (props) => {
                 marginTop: "3rem",
               }}
             >
-              <ul class="p-0 list-style-3">
+              <ul className="p-0 list-style-3">
                 <li>
                   Round brush attachment ø 50 mm for structured volume with long
                   hair, plus generous high-volume waves like a gorgeous
@@ -347,7 +347,7 @@ const N_535 = (props) => {
                 marginTop: "3rem",
               }}
             >
-              <ul class="p-0 list-style-3">
+              <ul className="p-0 list-style-3">
                 <li>
                   Round brush attachment ø 38 mm for super long-lasting super
                   extra large volume with mid-length hair, and consistent
@@ -560,7 +560,7 @@ const N_535 = (props) => {
                 lineHeight: "43px",
               }}
             >
-              <ul class="p-0 list-style-3">
+              <ul className="p-0 list-style-3">
                 <li>1,200 W power</li>
                 <li>
                   Air flow infused with argan oil &amp; keratin for perfectly

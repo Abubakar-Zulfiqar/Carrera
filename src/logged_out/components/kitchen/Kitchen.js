@@ -130,12 +130,12 @@ const Kitchen = (props) => {
                                     margin: "1rem 15rem 1rem 15rem",
                                 }}
                             >
-                                <h5 class="font-weight-300 text-extra-dark-gray">
+                                <h5 className="font-weight-300 text-extra-dark-gray">
                                     More goodness on your plate, less mess in the kitchen... These
                                     Carrera{" "}
-                                    <strong class="font-weight-600">kitchen athletes</strong>{" "}
+                                    <strong className="font-weight-600">kitchen athletes</strong>{" "}
                                     deliver{" "}
-                                    <strong class="font-weight-600">
+                                    <strong className="font-weight-600">
                                         outstanding performance
                                     </strong>{" "}
                                     across a wide range of disciplines.

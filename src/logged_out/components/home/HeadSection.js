@@ -64,7 +64,7 @@ const HeadSection = (props) => {
             }}
             className="background37"
           >
-            <div class="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle">
               <Grid
                 container
                 justify="center"
@@ -87,7 +87,7 @@ const HeadSection = (props) => {
                     <span className="text-white">Kitchen</span>
                   </Typography>
                   <div
-                    class="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
+                    className="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
                     style={{ marginTop: "2rem", marginBottom: "1rem" }}
                   ></div>
 
@@ -120,7 +120,7 @@ const HeadSection = (props) => {
                   >
                     From quartz toasters to glass kettles and feature rich food
                     mixers to beautiful blenders... Carrera kitchen tools
-                    perform like world class culinary athletes.
+                    perform like world className culinary athletes.
                   </Typography>
                   <Link to="/kitchen" className={classes.noDecoration}>
                     <button
@@ -152,7 +152,7 @@ const HeadSection = (props) => {
             }}
             className="background38"
           >
-            <div class="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle">
               <Grid
                 container
                 justify="center"
@@ -175,7 +175,7 @@ const HeadSection = (props) => {
                     <span className="text-white">Styling</span>
                   </Typography>
                   <div
-                    class="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
+                    className="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
                     style={{ marginTop: "2rem", marginBottom: "1rem" }}
                   ></div>
 
@@ -240,7 +240,7 @@ const HeadSection = (props) => {
             }}
             className="background39"
           >
-            <div class="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle">
               <Grid
                 container
                 justify="center"
@@ -263,7 +263,7 @@ const HeadSection = (props) => {
                     <span className="text-white">Grooming</span>
                   </Typography>
                   <div
-                    class="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
+                    className="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
                     style={{ marginTop: "2rem", marginBottom: "1rem" }}
                   ></div>
 
@@ -328,7 +328,7 @@ const HeadSection = (props) => {
             }}
             className="background40"
           >
-            <div class="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle">
               <Grid
                 container
                 justify="center"
@@ -351,7 +351,7 @@ const HeadSection = (props) => {
                     <span className="text-white">Magazine</span>
                   </Typography>
                   <div
-                    class="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
+                    className="separator-line-horrizontal-medium-thick bg-yellow width-10 margin-25px-bottom"
                     style={{ marginTop: "2rem", marginBottom: "1rem" }}
                   ></div>
 

@@ -88,7 +88,7 @@ const Grooming = (props) => {
                         >
                             Grooming <span className="text-yellow">_</span>
                         </Typography>
-                        <Typography class="text-small font-weight-700 alt-font letter-spacing-8 text-uppercase d-inline-block margin-5px-top ">
+                        <Typography className="text-small font-weight-700 alt-font letter-spacing-8 text-uppercase d-inline-block margin-5px-top ">
                             all Carrera grooming tools
                         </Typography>
                         <Typography
@@ -104,14 +104,14 @@ const Grooming = (props) => {
                                 margin: "1rem 15rem 1rem 15rem"
                             }}
                         >
-                            <h6 class="font-weight-300 text-extra-dark-gray">
+                            <h6 className="font-weight-300 text-extra-dark-gray">
                                 Carrera make tools that{" "}
-                                <strong class="font-weight-600">deal with unwanted hair</strong>{" "}
+                                <strong className="font-weight-600">deal with unwanted hair</strong>{" "}
                                 on any part of your body. For{" "}
-                                <strong class="font-weight-600">supersmooth skin,</strong> or to{" "}
-                                <strong class="font-weight-600">keep hair in check.</strong> Not
+                                <strong className="font-weight-600">supersmooth skin,</strong> or to{" "}
+                                <strong className="font-weight-600">keep hair in check.</strong> Not
                                 designed for just men or just women but{" "}
-                                <strong class="font-weight-600">made for everyone</strong> that
+                                <strong className="font-weight-600">made for everyone</strong> that
                                 demands performance, utility and aesthetics, however they
                                 identify.
                             </h6>
