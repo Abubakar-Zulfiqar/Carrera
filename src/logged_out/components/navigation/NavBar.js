@@ -155,12 +155,12 @@ const NavBar = (props) => {
                   </Button>
                 </Link>
                 <div className="dropdown-content">
-                  <a href="carrera-ac-hair-dryer-631">AC HAIR DRYER №631</a>
-                  <a href="carrera-hair-dryer-531">HAIR DRYER №531</a>
-                  <a href="carrera-hair-dryer-532">HAIR DRYER №532</a>
-                  <a href="carrera-hair-straightener-534">HAIR STRAIGHTENER №534</a>
-                  <a href="carrera-hot-air-brush-535">HOT AIR BRUSH №535</a>
-                  <a href="carrera-curling-tong-537">CURLING TONG №537</a>
+                  <Link to="/carrera-ac-hair-dryer-631">AC HAIR DRYER №631</Link>
+                  <Link to="/carrera-hair-dryer-531">HAIR DRYER №531</Link>
+                  <Link to="/carrera-hair-dryer-532">HAIR DRYER №532</Link>
+                  <Link to="/carrera-hair-straightener-534">HAIR STRAIGHTENER №534</Link>
+                  <Link to="/carrera-hot-air-brush-535">HOT AIR BRUSH №535</Link>
+                  <Link to="/carrera-curling-tong-537">CURLING TONG №537</Link>
                 </div>
               </div>
               <div className="dropdown">
@@ -180,7 +180,7 @@ const NavBar = (props) => {
                   </Button>
                 </Link>
                 <div className="dropdown-content">
-                  <a href="carrera-facial-cleansing-brush-571">FACIAL CLEANSING BRUSH №571</a>
+                  <Link to="/carrera-facial-cleansing-brush-571">FACIAL CLEANSING BRUSH №571</Link>
                 </div>
               </div>
               <div className="dropdown">
@@ -200,12 +200,12 @@ const NavBar = (props) => {
                   </Button>
                 </Link>
                 <div className="dropdown-content">
-                  <a href="carrera-shaver-521">Shaver №521</a>
-                  <a href="carrera-shaver-421">Shaver №421</a>
-                  <a href="carrera-hair-clipper-622">Hair Clipper №622</a>
-                  <a href="carrera-cosmetic-trimmer-524">Cosmetic Trimmer №524</a>
-                  <a href="carrera-trimmer-623">Trimmer №623</a>
-                  <a href="carrera-charging-base-526">Charging Base №526</a>
+                  <Link to="/carrera-shaver-521">Shaver №521</Link>
+                  <Link to="/carrera-shaver-421">Shaver №421</Link>
+                  <Link to="/carrera-hair-clipper-622">Hair Clipper №622</Link>
+                  <Link to="/carrera-cosmetic-trimmer-524">Cosmetic Trimmer №524</Link>
+                  <Link to="/carrera-trimmer-623">Trimmer №623</Link>
+                  <Link to="/carrera-charging-base-526">Charging Base №526</Link>
                 </div>
               </div>
               <div className="dropdown">
@@ -225,13 +225,13 @@ const NavBar = (props) => {
                   </Button>
                 </Link>
                 <div className="dropdown-content">
-                  <a href="carrera-water-kettle-551">Water Kettle №551</a>
-                  <a href="carrera-glass-water-kettle-651">Glass Water Kettle №651</a>
-                  <a href="carrera-toaster-552">Toaster №552</a>
-                  <a href="carrera-blender-655">Blender №655</a>
-                  <a href="carrera-stand-mixer-657">Stand Mixer №657</a>
-                  <a href="carrera-stick-blender-554">Stick Blender №554</a>
-                  <a href="carrera-hand-mixer-555">Hand Mixer №555</a>
+                  <Link to="/carrera-water-kettle-551">Water Kettle №551</Link>
+                  <Link to="/carrera-glass-water-kettle-651">Glass Water Kettle №651</Link>
+                  <Link to="/carrera-toaster-552">Toaster №552</Link>
+                  <Link to="/carrera-blender-655">Blender №655</Link>
+                  <Link to="/carrera-stand-mixer-657">Stand Mixer №657</Link>
+                  <Link to="/carrera-stick-blender-554">Stick Blender №554</Link>
+                  <Link to="/carrera-hand-mixer-555">Hand Mixer №555</Link>
                 </div>
               </div >
             </Hidden >
@@ -252,13 +252,6 @@ const NavBar = (props) => {
           </Box>
         </Toolbar >
       </AppBar >
-      <NavigationDrawer
-        menuItems={menuItems}
-        anchor="right"
-        open={mobileDrawerOpen}
-        selectedItem={selectedTab}
-        onClose={handleMobileDrawerClose}
-      />
     </div >
   );
 };
