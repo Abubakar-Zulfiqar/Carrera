@@ -51,17 +51,6 @@ const N_631 = (props) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCartHandler = () => {
-    const itemIndex = cartItems.findIndex((cartItem) => cartItem.id === data.id);
-    if (itemIndex >= 0) {
-      const newItem = { ...data, quantity: 1 };
-      setCartItems([...cartItems, newItem]);
-    } else {
-      const newItem = { ...data, quantity: 1 };
-      setCartItems([...cartItems, newItem]);
-    }
-  };
-
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
     if (storedCartItems) {
@@ -172,7 +161,7 @@ const N_631 = (props) => {
           <Button
             className={classes.btn}
             variant="contained"
-            onClick={() => addToCartHandler(data)}
+            onClick={() => handleAddToCart(data)}
           >
             ADD TO CART
           </Button>
