@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
 import {
   Grid,
   Typography,
@@ -31,7 +32,7 @@ const N_537 = (props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const data = {
-    id: 6,
+    id: uuid(),
     name: "Carrera Curling Tong",
     price: 69.99,
     image: `${process.env.PUBLIC_URL}/images/logged_out/№537 01.jpg`,

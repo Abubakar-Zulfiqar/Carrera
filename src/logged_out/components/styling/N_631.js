@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
 import {
   Grid,
   Typography,
@@ -32,7 +33,7 @@ const N_631 = (props) => {
 
   const data =
   {
-    id: 1,
+    id: uuid(),
     name: "Hair Dryer 631",
     price: 99.99,
     image: `${process.env.PUBLIC_URL}/images/logged_out/№631 01.jpg`,

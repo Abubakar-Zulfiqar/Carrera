@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 import {
   Grid,
   Typography,
@@ -30,7 +31,7 @@ const N_535 = (props) => {
   const { classes, theme } = props;
 
   const data = {
-    id: 5,
+    id: uuid(),
     name: "Carrera Hot Air Brush",
     price: 99.99,
     image: `${process.env.PUBLIC_URL}/images/logged_out/№535 01.jpg`,
