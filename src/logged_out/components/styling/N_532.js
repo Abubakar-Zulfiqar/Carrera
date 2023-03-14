@@ -8,7 +8,9 @@ import {
   Divider,
 } from "@mui/material";
 import withStyles from "@mui/styles/withStyles";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
+import Cart from "../cart/Cart";
 import ShareButton from "../../../shared/components/ShareButton";
 import ZoomVideo from "../../../shared/components/ZoomVideo";
 
@@ -43,7 +45,84 @@ const styles = (theme) => ({
 });
 
 const N_532 = (props) => {
+  const { classes, theme } = props;
   const [isVisible, setIsVisible] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCartHandler = () => {
+    const itemIndex = cartItems.findIndex((cartItem) => cartItem.id === data.id);
+    if (itemIndex >= 0) {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    } else {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    }
+  };
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (storedCartItems) {
+      setCartItems(storedCartItems);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const handleAddToCart = () => {
+    const itemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === data.id
+    );
+    if (itemIndex >= 0) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[itemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    const itemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === data.id
+    );
+    if (itemIndex >= 0) {
+      const updatedCartItems = [...cartItems];
+      if (updatedCartItems[itemIndex].quantity > 1) {
+        updatedCartItems[itemIndex].quantity -= 1;
+        setCartItems(updatedCartItems);
+      } else {
+        updatedCartItems.splice(itemIndex, 1);
+        setCartItems(updatedCartItems);
+      }
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+
+  const openCartHandler = () => {
+    setShowCart(true);
+  };
+
+  const closeCartHandler = () => {
+    setShowCart(false);
+  };
+
+  const data = {
+    id: 3,
+    name: "Hair Dryer 532",
+    price: 39.99,
+    image: `${process.env.PUBLIC_URL}/images/logged_out/№532 01.jpg`,
+  };
 
   const onScroll = () => {
     if (window.pageYOffset > 100) {
@@ -60,75 +139,62 @@ const N_532 = (props) => {
     };
   }, []);
 
-  const { classes, theme } = props;
 
   return (
-    <Container>
-      <div className={classes.blogContentWrapper}>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          spacing={5}
-          sx={{
-            top: "104px",
-            position: "fixed",
-            height: "54px",
-            width: "100%",
-            background: "#f8f8f8",
-            zIndex: 1000,
-          }}
-          direction="row"
-        >
-          <Grid xs={4}>
-            <Typography variant="h6">Hair Dryer 532</Typography>
-          </Grid>
-          <Grid xs={4}>
-            <Typography variant="body2" color="textSecondary">
-              Price: <b>£39.99</b> + shipping
-            </Typography>
-          </Grid>
-          <Grid xs={4}>
-            <Button
-              className={classes.btn}
-              variant="contained"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions"
-            >
-              ADD TO CART
-            </Button>
-
-            <div
-              className="offcanvas offcanvas-end"
-              data-bs-scroll="true"
-              tabindex="-1"
-              id="offcanvasWithBothOptions"
-              aria-labelledby="offcanvasWithBothOptionsLabel"
-              style={{ marginTop: '4rem' }}
-            >
-              <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                  Cart
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="offcanvas-body">
-                <p style={{ textAlign: 'center' }}>
-                  Your cart is empty.
-                </p>
-              </div>
-            </div>
-          </Grid>
+    <>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        spacing={5}
+        sx={{
+          top: "104px",
+          position: "fixed",
+          height: "54px",
+          width: "100%",
+          background: "#f8f8f8",
+          zIndex: 1000,
+          marginLeft: "0px",
+          textAlign: "center",
+        }}
+        direction="row"
+      >
+        <Grid xs={4}>
+          <Typography variant="h6">{data.name}</Typography>
         </Grid>
-        <Divider sx={{ margin: "1rem 0 1rem 0" }} />
+        <Grid xs={4}>
+          <Typography variant="body2" color="textSecondary">
+            Price: <b>£{data.price}</b> + shipping
+          </Typography>
+        </Grid>
+        <Grid xs={4}>
+          <Button
+            className={classes.btn}
+            variant="contained"
+            onClick={() => addToCartHandler(data)}
+          >
+            ADD TO CART
+          </Button>
 
-        {/* Section 01 */}
+          <ShoppingCartIcon
+            onClick={openCartHandler}
+            style={{ fontSize: '2rem', marginLeft: '2rem', cursor: 'pointer' }}
+          />
+          <span>({cartItems.length})</span>
+          <Cart
+            show={showCart}
+            handleClose={closeCartHandler}
+            cartItems={cartItems}
+            handleAddToCart={handleAddToCart}
+            handleRemoveFromCart={handleRemoveFromCart}
+            getTotalPrice={getTotalPrice}
+          />
+        </Grid>
+      </Grid>
+      <Divider sx={{ margin: "1rem 0 1rem 0" }} />
+
+      {/* Section 01 */}
+      <Container>
         <Grid container spacing={5} sx={{ marginTop: "15rem" }}>
           <Grid container md={10} direction="row">
             <Grid xs={6}>
@@ -705,8 +771,8 @@ const N_532 = (props) => {
           </Grid>
         </Grid>
         <Divider sx={{ margin: "1rem 0 1rem 0" }} />
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 

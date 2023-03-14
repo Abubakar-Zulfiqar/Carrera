@@ -30,12 +30,14 @@ import Grooming from "./grooming/Grooming";
 import PropsRoute from "../../shared/components/PropsRoute";
 import useLocationBlocker from "../../shared/functions/useLocationBlocker";
 import Animation from "./Particals Animation/Animation";
+import Cart from "./cart/Cart";
 
 function Routing(props) {
   const { selectHome } = props;
   useLocationBlocker();
   return (
     <Switch>
+      <PropsRoute exact path="/cart" component={Cart} />
       <PropsRoute exact path="/beauty" component={Beauty} />
       <PropsRoute exact path="/styling" component={Styling} />
       <PropsRoute exact path="/kitchen" component={Kitchen} />

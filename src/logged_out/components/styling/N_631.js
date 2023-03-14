@@ -7,9 +7,11 @@ import {
   Container,
   Divider,
 } from "@mui/material";
-import withStyles from "@mui/styles/withStyles";
 import classNames from "classnames";
+import withStyles from "@mui/styles/withStyles";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
+import Cart from "../cart/Cart";
 import ShareButton from "../../../shared/components/ShareButton";
 import ZoomVideo from "../../../shared/components/ZoomVideo";
 
@@ -44,7 +46,78 @@ const styles = (theme) => ({
 });
 
 const N_631 = (props) => {
+  const { classes, theme } = props;
   const [isVisible, setIsVisible] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCartHandler = () => {
+    const itemIndex = cartItems.findIndex((cartItem) => cartItem.id === data.id);
+    if (itemIndex >= 0) {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    } else {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    }
+  };
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    if (storedCartItems) {
+      setCartItems(storedCartItems);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const handleAddToCart = () => {
+    const itemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === data.id
+    );
+    if (itemIndex >= 0) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[itemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      const newItem = { ...data, quantity: 1 };
+      setCartItems([...cartItems, newItem]);
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    const itemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === data.id
+    );
+    if (itemIndex >= 0) {
+      const updatedCartItems = [...cartItems];
+      if (updatedCartItems[itemIndex].quantity > 1) {
+        updatedCartItems[itemIndex].quantity -= 1;
+        setCartItems(updatedCartItems);
+      } else {
+        updatedCartItems.splice(itemIndex, 1);
+        setCartItems(updatedCartItems);
+      }
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
+
+  const openCartHandler = () => {
+    setShowCart(true);
+  };
+
+  const closeCartHandler = () => {
+    setShowCart(false);
+  };
+
   const data =
   {
     id: 1,
@@ -52,22 +125,6 @@ const N_631 = (props) => {
     price: 99.99,
     image: `${process.env.PUBLIC_URL}/images/logged_out/№631 01.jpg`,
   }
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCartHandler = (product) => {
-    const existItem = cartItems.find((x) => x.id === product.id);
-    if (existItem) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...existItem, qty: existItem.qty + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
-    }
-  };
-
-
 
   const onScroll = () => {
     if (window.pageYOffset > 100) {
@@ -83,8 +140,6 @@ const N_631 = (props) => {
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
-
-  const { classes, theme } = props;
 
   return (
     <>
@@ -117,57 +172,24 @@ const N_631 = (props) => {
           <Button
             className={classes.btn}
             variant="contained"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions"
-            aria-controls="offcanvasWithBothOptions"
             onClick={() => addToCartHandler(data)}
           >
             ADD TO CART
           </Button>
 
-          <div
-            className="offcanvas offcanvas-end"
-            data-bs-scroll="true"
-            tabindex="-1"
-            id="offcanvasWithBothOptions"
-            aria-labelledby="offcanvasWithBothOptionsLabel"
-            style={{ marginTop: '4rem' }}
+          <ShoppingCartIcon
+            onClick={openCartHandler}
+            style={{ fontSize: '2rem', marginLeft: '2rem', cursor: 'pointer' }}
+          />
+          <span>({cartItems.length})</span>
+          <Cart
+            show={showCart}
+            handleClose={closeCartHandler}
             cartItems={cartItems}
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                Cart
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="offcanvas-body">
-              {cartItems.length === 0 ? (
-                <div style={{ textAlign: 'center' }}>Cart is empty</div>
-              ) : (
-                <div>
-                  {cartItems.map((item) => (
-                    <Grid container height="2rem" direction="row" textAlign="center" marginBottom="5rem" key={item.id} spacing={5}>
-                      <Grid item xs={4}>
-                        <img src={item.image} alt={item.name} width="50%" />
-                      </Grid>
-                      <Grid item xs={4} sx={{ fontSize: '14px' }}>
-                        <p>{item.name}</p>
-                        <p>{item.qty}</p>
-                      </Grid>
-                      <Grid item xs={4} sx={{ fontSize: '14px', fontWeight: '500' }}>
-                        <p>£{item.price}</p>
-                      </Grid>
-                    </Grid>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+            handleAddToCart={handleAddToCart}
+            handleRemoveFromCart={handleRemoveFromCart}
+            getTotalPrice={getTotalPrice}
+          />
         </Grid>
       </Grid>
       <Divider sx={{ margin: "1rem 0 1rem 0" }} />

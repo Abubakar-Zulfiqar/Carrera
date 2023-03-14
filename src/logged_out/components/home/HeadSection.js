@@ -64,12 +64,10 @@ const HeadSection = (props) => {
             }}
             className="background37"
           >
-            <div className="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle" style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
               <Grid
                 container
-                justify="center"
-                alignItems="center"
-                sx={{ textAlign: "left", marginLeft: "5rem" }}
+                sx={{ textAlign: "left", marginTop: '15rem' }}
               >
                 <Grid item xs={6} sx={{ paddingRight: "40px" }}>
                   <Typography
@@ -81,7 +79,6 @@ const HeadSection = (props) => {
                       animationFillMode: "both",
                       fontSize: "70px",
                       lineHeight: "70px",
-                      marginTop: "-40rem",
                     }}
                   >
                     <span className="text-white">Kitchen</span>
@@ -152,12 +149,10 @@ const HeadSection = (props) => {
             }}
             className="background38"
           >
-            <div className="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle" style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
               <Grid
                 container
-                justify="center"
-                alignItems="center"
-                sx={{ textAlign: "left", marginLeft: "5rem" }}
+                sx={{ textAlign: "left", marginTop: '15rem' }}
               >
                 <Grid item xs={6} sx={{ paddingRight: "40px" }}>
                   <Typography
@@ -169,7 +164,6 @@ const HeadSection = (props) => {
                       animationFillMode: "both",
                       fontSize: "70px",
                       lineHeight: "70px",
-                      marginTop: "-40rem",
                     }}
                   >
                     <span className="text-white">Styling</span>
@@ -240,12 +234,10 @@ const HeadSection = (props) => {
             }}
             className="background39"
           >
-            <div className="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle" style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
               <Grid
                 container
-                justify="center"
-                alignItems="center"
-                sx={{ textAlign: "left", marginLeft: "5rem" }}
+                sx={{ textAlign: "left", marginTop: '15rem' }}
               >
                 <Grid item xs={6} sx={{ paddingRight: "40px" }}>
                   <Typography
@@ -257,7 +249,6 @@ const HeadSection = (props) => {
                       animationFillMode: "both",
                       fontSize: "70px",
                       lineHeight: "70px",
-                      marginTop: "-40rem",
                     }}
                   >
                     <span className="text-white">Grooming</span>
@@ -328,12 +319,10 @@ const HeadSection = (props) => {
             }}
             className="background40"
           >
-            <div className="carousel-caption slider-text-middle">
+            <div className="carousel-caption slider-text-middle" style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
               <Grid
                 container
-                justify="center"
-                alignItems="center"
-                sx={{ textAlign: "left", marginLeft: "5rem" }}
+                sx={{ textAlign: "left", marginTop: '15rem' }}
               >
                 <Grid item xs={6} sx={{ paddingRight: "40px" }}>
                   <Typography
@@ -345,7 +334,6 @@ const HeadSection = (props) => {
                       animationFillMode: "both",
                       fontSize: "70px",
                       lineHeight: "70px",
-                      marginTop: "-40rem",
                     }}
                   >
                     <span className="text-white">Magazine</span>
