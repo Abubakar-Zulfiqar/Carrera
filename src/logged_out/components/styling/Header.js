@@ -22,17 +22,6 @@ const Header = (props) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
 
-    useEffect(() => {
-        const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-        if (storedCartItems) {
-            setCartItems(storedCartItems);
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    }, [cartItems]);
-
     const handleAddToCart = () => {
         const itemIndex = cartItems.findIndex(
             (cartItem) => cartItem.id === props.data.id
@@ -77,6 +66,18 @@ const Header = (props) => {
     const closeCartHandler = () => {
         setShowCart(false);
     };
+
+    useEffect(() => {
+        const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+        if (storedCartItems) {
+            setCartItems(storedCartItems);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
+
     return (
         <>
             <Grid

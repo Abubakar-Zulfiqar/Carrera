@@ -4,6 +4,13 @@ import { Switch } from "react-router-dom";
 
 import Home from "./home/Home";
 import N_571 from "./beauty/N_571";
+import N_551 from "./kitchen/N_551";
+import N_651 from "./kitchen/N_651";
+import N_552 from "./kitchen/N_552";
+import N_655 from "./kitchen/N_655";
+import N_657 from "./kitchen/N_657";
+import N_554 from "./kitchen/N_554";
+import N_555 from "./kitchen/N_555";
 import N_631 from "./styling/N_631";
 import N_531 from "./styling/N_531";
 import N_532 from "./styling/N_532";
@@ -16,33 +23,22 @@ import N_622 from "./grooming/N_622";
 import N_524 from "./grooming/N_524";
 import N_623 from "./grooming/N_623";
 import N_526 from "./grooming/N_526";
-import N_551 from "./kitchen/N_551"
-import N_651 from "./kitchen/N_651"
-import N_552 from "./kitchen/N_552"
-import N_655 from "./kitchen/N_655"
-import N_657 from "./kitchen/N_657"
-import N_554 from "./kitchen/N_554"
-import N_555 from "./kitchen/N_555"
 import Beauty from "./beauty/Beauty";
 import Styling from "./styling/Styling";
 import Kitchen from "./kitchen/Kitchen";
 import Grooming from "./grooming/Grooming";
 import PropsRoute from "../../shared/components/PropsRoute";
 import useLocationBlocker from "../../shared/functions/useLocationBlocker";
-import Animation from "./Particals Animation/Animation";
-import Cart from "./cart/Cart";
 
 function Routing(props) {
   const { selectHome } = props;
   useLocationBlocker();
   return (
     <Switch>
-      <PropsRoute exact path="/cart" component={Cart} />
       <PropsRoute exact path="/beauty" component={Beauty} />
       <PropsRoute exact path="/styling" component={Styling} />
       <PropsRoute exact path="/kitchen" component={Kitchen} />
       <PropsRoute exact path="/grooming" component={Grooming} />
-      <PropsRoute exact path="/animation" component={Animation} />
       <PropsRoute path="/carrera-shaver-521" component={N_521} />
       <PropsRoute path="/carrera-shaver-421" component={N_421} />
       <PropsRoute path="/carrera-trimmer-623" component={N_623} />
@@ -62,7 +58,10 @@ function Routing(props) {
       <PropsRoute path="/carrera-cosmetic-trimmer-524" component={N_524} />
       <PropsRoute path="/carrera-hair-straightener-534" component={N_534} />
       <PropsRoute path="/carrera-glass-water-kettle-651" component={N_651} />
-      <PropsRoute path="/carrera-facial-cleansing-brush-571" component={N_571} />
+      <PropsRoute
+        path="/carrera-facial-cleansing-brush-571"
+        component={N_571}
+      />
       <PropsRoute path="/" component={Home} selectHome={selectHome} />
     </Switch>
   );
