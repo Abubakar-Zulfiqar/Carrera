@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 import {
     Grid,
     Typography,
@@ -12,29 +13,13 @@ import classNames from "classnames";
 import withStyles from "@mui/styles/withStyles";
 import BoltIcon from "@mui/icons-material/Bolt";
 
+import Header from "../Header";
 import ShareButton from "../../../shared/components/ShareButton";
 import ZoomVideo from "../../../shared/components/ZoomVideo";
 
 import "../../../index.css";
 
 const styles = (theme) => ({
-    blogContentWrapper: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: theme.spacing(4),
-            marginRight: theme.spacing(4),
-        },
-        maxWidth: 1280,
-        width: "100%",
-    },
-    img: {
-        width: "100%",
-        height: "auto",
-    },
-    card: {
-        boxShadow: theme.shadows[4],
-    },
     btn: {
         textTranform: "uppercase",
         backgroundColor: theme.palette.secondary.main,
@@ -50,7 +35,15 @@ const styles = (theme) => ({
 });
 
 const N_521 = (props) => {
+    const { classes, theme } = props;
     const [isVisible, setIsVisible] = useState(false);
+
+    const data = {
+        id: uuid(),
+        name: "Carrera Shaver 521",
+        price: 179.99,
+        image: `${process.env.PUBLIC_URL}/images/logged_out/grooming/№521 01.jpg`,
+    };
 
     const onScroll = () => {
         if (window.pageYOffset > 100) {
@@ -67,75 +60,13 @@ const N_521 = (props) => {
         };
     }, []);
 
-    const { classes, theme } = props;
 
     return (
-        <Container>
-            <div className={classes.blogContentWrapper}>
-                <Grid
-                    container
-                    justify="center"
-                    alignItems="center"
-                    spacing={5}
-                    sx={{
-                        top: "104px",
-                        position: "fixed",
-                        height: "54px",
-                        width: "100%",
-                        background: "#f8f8f8",
-                        zIndex: 1000,
-                    }}
-                    direction="row"
-                >
-                    <Grid xs={4}>
-                        <Typography variant="h6">Carrera Shaver 521</Typography>
-                    </Grid>
-                    <Grid xs={4}>
-                        <Typography variant="body2" color="textSecondary">
-                            Price: <b>£179.99</b> + shipping
-                        </Typography>
-                    </Grid>
-                    <Grid xs={4}>
-                        <Button
-                            className={classes.btn}
-                            variant="contained"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasWithBothOptions"
-                            aria-controls="offcanvasWithBothOptions"
-                        >
-                            ADD TO CART
-                        </Button>
+        <>
+            <Header data={data} />
 
-                        <div
-                            className="offcanvas offcanvas-end"
-                            data-bs-scroll="true"
-                            tabindex="-1"
-                            id="offcanvasWithBothOptions"
-                            aria-labelledby="offcanvasWithBothOptionsLabel"
-                            style={{ marginTop: '4rem' }}
-                        >
-                            <div className="offcanvas-header">
-                                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                                    Cart
-                                </h5>
-                                <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="offcanvas"
-                                    aria-label="Close"
-                                ></button>
-                            </div>
-                            <div className="offcanvas-body">
-                                <p style={{ textAlign: 'center' }}>
-                                    Your cart is empty.
-                                </p>
-                            </div>
-                        </div>
-                    </Grid>
-                </Grid>
-                <Divider sx={{ margin: "1rem 0 1rem 0" }} />
-
-                {/* Section 01 */}
+            {/* Section 01 */}
+            <Container>
                 <Grid container spacing={5} sx={{ marginTop: "15rem" }}>
                     <Grid container direction="row">
                         <Grid xs={6}>
@@ -880,8 +811,8 @@ const N_521 = (props) => {
                     </Grid>
                 </Grid>
                 <Divider sx={{ margin: "1rem 0 1rem 0" }} />
-            </div>
-        </Container>
+            </Container>
+        </>
     );
 };
 
