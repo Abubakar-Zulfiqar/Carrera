@@ -9,7 +9,7 @@ import {
 import classNames from "classnames";
 import withStyles from "@mui/styles/withStyles";
 
-import Header from "./Header";
+import Header from "../Header";
 import ShareButton from "../../../shared/components/ShareButton";
 import ZoomVideo from "../../../shared/components/ZoomVideo";
 

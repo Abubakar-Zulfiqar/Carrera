@@ -1,9 +1,22 @@
 import React from "react";
+
 import { Grid } from "@mui/material";
+import withStyles from "@mui/styles/withStyles";
 import { Offcanvas, Button } from "react-bootstrap";
 
+const styles = (theme) => ({
+    btn: {
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
+        "&:hover": {
+            backgroundColor: theme.palette.primary.main,
+            color: "#ffffff",
+        },
+    },
+});
+
 function Cart(props) {
-    const { cartItems, handleClose } = props;
+    const { cartItems, handleClose, classes } = props;
     return (
         <Offcanvas show={props.show} onHide={handleClose} placement="end">
             <Offcanvas.Header closeButton>
@@ -35,13 +48,22 @@ function Cart(props) {
                                 <Grid item xs={4} sx={{ fontSize: "14px" }}>
                                     <p>{item.name}</p>
                                     <Button
-                                        variant="secondary"
-                                        onClick={props.handleRemoveFromCart}
+                                        className={classes.btn}
+                                        style={{ border: 'none' }}
+                                        onClick={() =>
+                                            props.updateQuantity(item.id, item.quantity - 1)
+                                        }
                                     >
                                         -
                                     </Button>
                                     <span style={{ margin: "10px" }}>{item.quantity}</span>
-                                    <Button variant="secondary" onClick={props.handleAddToCart}>
+                                    <Button
+                                        className={classes.btn}
+                                        style={{ border: 'none' }}
+                                        onClick={() =>
+                                            props.updateQuantity(item.id, item.quantity + 1)
+                                        }
+                                    >
                                         +
                                     </Button>
                                 </Grid>
@@ -63,16 +85,17 @@ function Cart(props) {
                         £{props.getTotalPrice()}
                     </p>
                     <Button
-                        variant="secondary"
+                        className={classes.btn}
                         onClick={handleClose}
                         style={{
                             clear: "both",
                             marginTop: "15px",
                             width: "100%",
                             padding: "10px 5px",
+                            border: 'none'
                         }}
                     >
-                        Close
+                        Checkout
                     </Button>
                 </div>
             </Offcanvas.Body>
@@ -80,4 +103,4 @@ function Cart(props) {
     );
 }
 
-export default Cart;
+export default withStyles(styles, { withTheme: true })(Cart);

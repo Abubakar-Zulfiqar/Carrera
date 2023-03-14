@@ -4,7 +4,7 @@ import withStyles from "@mui/styles/withStyles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Button, Divider, Grid, Typography } from "@mui/material";
 
-import Cart from "../cart/Cart";
+import Cart from "./cart/Cart";
 
 const styles = (theme) => ({
     btn: {
@@ -36,20 +36,38 @@ const Header = (props) => {
         }
     };
 
-    const handleRemoveFromCart = () => {
-        const itemIndex = cartItems.findIndex(
-            (cartItem) => cartItem.id === props.data.id
-        );
-        if (itemIndex >= 0) {
-            const updatedCartItems = [...cartItems];
-            if (updatedCartItems[itemIndex].quantity > 1) {
-                updatedCartItems[itemIndex].quantity -= 1;
-                setCartItems(updatedCartItems);
-            } else {
-                updatedCartItems.splice(itemIndex, 1);
-                setCartItems(updatedCartItems);
-            }
+    // const handleRemoveFromCart = () => {
+    //     const itemIndex = cartItems.findIndex(
+    //         (cartItem) => cartItem.id === props.data.id
+    //     );
+    //     if (itemIndex >= 0) {
+    //         const updatedCartItems = [...cartItems];
+    //         if (updatedCartItems[itemIndex].quantity > 1) {
+    //             updatedCartItems[itemIndex].quantity -= 1;
+    //             setCartItems(updatedCartItems);
+    //         } else {
+    //             updatedCartItems.splice(itemIndex, 1);
+    //             setCartItems(updatedCartItems);
+    //         }
+    //     }
+    // };
+
+    const updateQuantity = (id, quantity) => {
+        if (quantity === 0) {
+            removeItem(id);
+        } else {
+            const updatedCartItems = cartItems.map((item) =>
+                item.id === id ? { ...item, quantity } : item
+            );
+            setCartItems(updatedCartItems);
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
         }
+    };
+
+    const removeItem = (id) => {
+        const updatedCartItems = cartItems.filter((item) => item.id !== id);
+        setCartItems(updatedCartItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
     const getTotalPrice = () => {
@@ -124,7 +142,7 @@ const Header = (props) => {
                         handleClose={closeCartHandler}
                         cartItems={cartItems}
                         handleAddToCart={handleAddToCart}
-                        handleRemoveFromCart={handleRemoveFromCart}
+                        updateQuantity={updateQuantity}
                         getTotalPrice={getTotalPrice}
                     />
                 </Grid>
