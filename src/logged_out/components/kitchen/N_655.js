@@ -19,7 +19,7 @@ const N_655 = (props) => {
         id: uuid(),
         name: "Carrera Blender",
         price: 499.99,
-        image: `${process.env.PUBLIC_URL}/images/logged_out/kitchen/№655 01.jpg`,
+        image: `${process.env.PUBLIC_URL}/images/logged_out/kitchen/kitchen 08.jpg`,
     };
 
     return (

@@ -36,22 +36,6 @@ const Header = (props) => {
         }
     };
 
-    // const handleRemoveFromCart = () => {
-    //     const itemIndex = cartItems.findIndex(
-    //         (cartItem) => cartItem.id === props.data.id
-    //     );
-    //     if (itemIndex >= 0) {
-    //         const updatedCartItems = [...cartItems];
-    //         if (updatedCartItems[itemIndex].quantity > 1) {
-    //             updatedCartItems[itemIndex].quantity -= 1;
-    //             setCartItems(updatedCartItems);
-    //         } else {
-    //             updatedCartItems.splice(itemIndex, 1);
-    //             setCartItems(updatedCartItems);
-    //         }
-    //     }
-    // };
-
     const updateQuantity = (id, quantity) => {
         if (quantity === 0) {
             removeItem(id);
@@ -77,13 +61,9 @@ const Header = (props) => {
         );
     };
 
-    const openCartHandler = () => {
-        setShowCart(true);
-    };
+    const openCartHandler = () => setShowCart(true);
 
-    const closeCartHandler = () => {
-        setShowCart(false);
-    };
+    const closeCartHandler = () => setShowCart(false);
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));

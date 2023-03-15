@@ -683,3 +683,37 @@
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+.shopify-buy__cart {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+.shopify-buy__cart__header {
+    padding: 20px;
+    padding-right: 40px;
+    position: relative;
+    z-index: 2147483647;
+    background-color: inherit;
+    font-size: 26px;
+}
+
+.shopify-buy__cart-scroll {
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    height: 72%;
+    width: 100%;
+}
+
+.shopify-buy__cart-bottom {
+    background-color: #fff;
+    position: absolute;
+    height: 22%;
+    width: 100%;
+    bottom: 0;
+    padding: 25px 20px 20px 20px;
+}

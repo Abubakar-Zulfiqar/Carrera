@@ -42,7 +42,7 @@ const N_521 = (props) => {
         id: uuid(),
         name: "Carrera Shaver 521",
         price: 179.99,
-        image: `${process.env.PUBLIC_URL}/images/logged_out/grooming/№521 01.jpg`,
+        image: `${process.env.PUBLIC_URL}/images/logged_out/grooming/grooming 01.jpg`,
     };
 
     const onScroll = () => {
