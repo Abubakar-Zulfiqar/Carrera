@@ -10,8 +10,6 @@ import {
   Box,
 } from "@mui/material";
 import withStyles from "@mui/styles/withStyles";
-import BookIcon from "@mui/icons-material/Book";
-import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 
 const styles = (theme) => ({
   appBar: {
@@ -110,19 +108,8 @@ const socialIcons = [
 ];
 
 const NavBar = (props) => {
-  const {
-    classes,
-    handleMobileDrawerClose,
-    mobileDrawerOpen,
-    selectedTab,
-  } = props;
-  const menuItems = [
-    {
-      link: "/styling",
-      name: "Styling",
-      icon: <BookIcon className="text-white" />,
-    },
-  ];
+  const { classes, handleMobileDrawerClose } = props;
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>

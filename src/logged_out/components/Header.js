@@ -18,7 +18,7 @@ const styles = (theme) => ({
 });
 
 const Header = (props) => {
-    const { classes, theme } = props;
+    const { classes } = props;
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
 

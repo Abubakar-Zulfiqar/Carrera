@@ -1,120 +1,30 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 import {
     Grid,
     Typography,
     Box,
-    Button,
     Container,
     Divider,
 } from "@mui/material";
-import withStyles from "@mui/styles/withStyles";
 
+import Header from "../Header";
 import ShareButton from "../../../shared/components/ShareButton";
 import ZoomVideo from "../../../shared/components/ZoomVideo";
 
 import "../../../index.css";
 
-const styles = (theme) => ({
-    blogContentWrapper: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        [theme.breakpoints.up("sm")]: {
-            marginLeft: theme.spacing(4),
-            marginRight: theme.spacing(4),
-        },
-        maxWidth: 1280,
-        width: "100%",
-    },
-    img: {
-        width: "100%",
-        height: "auto",
-    },
-    card: {
-        boxShadow: theme.shadows[4],
-    },
-    btn: {
-        textTranform: "uppercase",
-        backgroundColor: theme.palette.secondary.main,
-        color: theme.palette.primary.main,
-        "&:hover": {
-            backgroundColor: theme.palette.primary.main,
-            color: "#ffffff",
-        },
-    },
-    noDecoration: {
-        textDecoration: "none !important",
-    },
-});
-
 const N_551 = (props) => {
-    const { classes } = props;
+    const data = {
+        id: uuid(),
+        name: "Carrera Steel Kettle",
+        price: 159.99,
+        image: `${process.env.PUBLIC_URL}/images/logged_out/kitchen/№551 01.jpg`,
+    };
 
     return (
         <>
-            <Grid
-                container
-                justify="center"
-                alignItems="center"
-                spacing={5}
-                sx={{
-                    top: "104px",
-                    position: "fixed",
-                    height: "54px",
-                    width: "100%",
-                    background: "#f8f8f8",
-                    zIndex: 1000,
-                    marginLeft: "0px",
-                    textAlign: "center",
-                }}
-                direction="row"
-            >
-                <Grid xs={4}>
-                    <Typography variant="h6">Carrera Steel Kettle</Typography>
-                </Grid>
-                <Grid xs={4}>
-                    <Typography variant="body2" color="textSecondary">
-                        Price: <b>£159.99</b> + shipping
-                    </Typography>
-                </Grid>
-                <Grid xs={4}>
-                    <Button
-                        className={classes.btn}
-                        variant="contained"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasWithBothOptions"
-                        aria-controls="offcanvasWithBothOptions"
-                    >
-                        ADD TO CART
-                    </Button>
-
-                    <div
-                        className="offcanvas offcanvas-end"
-                        data-bs-scroll="true"
-                        tabindex="-1"
-                        id="offcanvasWithBothOptions"
-                        aria-labelledby="offcanvasWithBothOptionsLabel"
-                        style={{ marginTop: '4rem' }}
-                    >
-                        <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                                Cart
-                            </h5>
-                            <button
-                            type="button"
-                                className="btn-close"
-                                data-bs-dismiss="offcanvas"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div className="offcanvas-body">
-                            <p style={{ textAlign: 'center' }}>
-                                Your cart is empty.
-                            </p>
-                        </div>
-                    </div>
-                </Grid>
-            </Grid>
-            <Divider sx={{ margin: "1rem 0 1rem 0" }} />
+            <Header data={data} />
 
             {/* Section 01 */}
             <Container>
@@ -598,4 +508,4 @@ const N_551 = (props) => {
     );
 };
 
-export default withStyles(styles, { withTheme: true })(N_551);
+export default N_551;
