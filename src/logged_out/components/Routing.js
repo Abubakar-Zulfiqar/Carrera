@@ -27,6 +27,7 @@ import Beauty from "./beauty/Beauty";
 import Styling from "./styling/Styling";
 import Kitchen from "./kitchen/Kitchen";
 import Grooming from "./grooming/Grooming";
+import Checkout from "./checkout/Checkout";
 import PropsRoute from "../../shared/components/PropsRoute";
 import useLocationBlocker from "../../shared/functions/useLocationBlocker";
 
@@ -39,6 +40,7 @@ function Routing(props) {
       <PropsRoute exact path="/styling" component={Styling} />
       <PropsRoute exact path="/kitchen" component={Kitchen} />
       <PropsRoute exact path="/grooming" component={Grooming} />
+      <PropsRoute exact path="/checkout" component={Checkout} />
       <PropsRoute path="/carrera-shaver-521" component={N_521} />
       <PropsRoute path="/carrera-shaver-421" component={N_421} />
       <PropsRoute path="/carrera-trimmer-623" component={N_623} />

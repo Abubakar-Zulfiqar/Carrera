@@ -150,6 +150,7 @@ const NavBar = (props) => {
                   <Link to="/carrera-curling-tong-537">CURLING TONG №537</Link>
                 </div>
               </div>
+              <div className="vr"></div>
               <div className="dropdown">
                 <Link
                   to="/beauty"
@@ -170,6 +171,7 @@ const NavBar = (props) => {
                   <Link to="/carrera-facial-cleansing-brush-571">FACIAL CLEANSING BRUSH №571</Link>
                 </div>
               </div>
+              <div className="vr"></div>
               <div className="dropdown">
                 <Link
                   to="/grooming"
@@ -195,6 +197,7 @@ const NavBar = (props) => {
                   <Link to="/carrera-charging-base-526">Charging Base №526</Link>
                 </div>
               </div>
+              <div className="vr"></div>
               <div className="dropdown">
                 <Link
                   to="/kitchen"

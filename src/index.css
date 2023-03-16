@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 .img-cover {
     transition: all 500ms ease-in-out;
     cursor: pointer;
@@ -502,6 +506,10 @@
     letter-spacing: 8px;
 }
 
+.letter-spacing-6 {
+    letter-spacing: 6px;
+}
+
 .text-white-2 {
     color: #FFF;
 }
@@ -705,7 +713,7 @@
     overflow: hidden;
     overflow-y: auto;
     position: absolute;
-    height: 72%;
+    height: 70%;
     width: 100%;
 }
 
@@ -716,4 +724,46 @@
     width: 100%;
     bottom: 0;
     padding: 25px 20px 20px 20px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.divider hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 2px solid black;
+}
+
+.divider .divider-text {
+    padding: 0 1em;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header h1 {
+    position: relative;
+    padding-top: 33px;
+    margin: 0 auto;
+    margin-bottom: 73px;
+    font-family: "Avenir", "Avenir-No", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 27px);
+    top: calc(100% + 30px);
+    width: 55px;
+    height: 5px;
+    background-color: black;
 }

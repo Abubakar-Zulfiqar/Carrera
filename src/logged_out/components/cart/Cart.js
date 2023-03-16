@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Grid } from "@mui/material";
 import withStyles from "@mui/styles/withStyles";
@@ -12,6 +13,9 @@ const styles = (theme) => ({
             backgroundColor: theme.palette.primary.main,
             color: "#ffffff",
         },
+    },
+    noDecoration: {
+        textDecoration: "none !important",
     },
 });
 
@@ -82,19 +86,20 @@ function Cart(props) {
                                 <p style={{ float: "right", fontWeight: "500" }}>
                                     £{Number(props.getTotalPrice()).toFixed(2)}
                                 </p>
-                                <Button
-                                    className={classes.btn}
-                                    onClick={handleClose}
-                                    style={{
-                                        clear: "both",
-                                        marginTop: "15px",
-                                        width: "100%",
-                                        padding: "10px 5px",
-                                        border: 'none'
-                                    }}
-                                >
-                                    Checkout
-                                </Button>
+                                <Link to="/checkout" className={classes.noDecoration}>
+                                    <Button
+                                        className={classes.btn}
+                                        style={{
+                                            clear: "both",
+                                            marginTop: "15px",
+                                            width: "100%",
+                                            padding: "10px 5px",
+                                            border: 'none'
+                                        }}
+                                    >
+                                        Checkout
+                                    </Button>
+                                </Link>
                             </div>
                         </>
                     )}
